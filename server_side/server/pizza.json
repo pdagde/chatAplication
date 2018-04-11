@@ -1,0 +1,18 @@
+[
+		{
+		  "pizzaName": "Neapolitan Pizza",
+		  "price": 120,
+		  "discount" : 5
+		},
+		{
+		  "pizzaName": "Chicago Pizza",
+		  "price": 150,
+		  "discount" : 15
+		},
+		{
+		  "pizzaName": "New York Style Pizza",
+		  "price": 160,
+		  "discount" : 12
+		}
+
+]

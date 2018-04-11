@@ -1,0 +1,45 @@
+{
+  "name": "angular-addtocalendar",
+  "version": "1.3.4",
+  "authors": [
+    "Josh Shor <jpshor@gmail.com>"
+  ],
+  "description": "AngularJS directive for adding events to calendar apps",
+  "main": "dist/addtocalendar.js",
+  "keywords": [
+    "icalendar",
+    "google calendar",
+    "ics",
+    "outlook",
+    "calendar",
+    "event"
+  ],
+  "dependencies": {
+    "angular": ">=1.3.0",
+    "moment": "~2.15.1"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/jshor/angular-addtocalendar",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "demo",
+    "test",
+    "lib",
+    "npm-debug.log",
+    "karma.conf.js"
+  ],
+  "devDependencies": {
+    "angular-mocks": "~1.4.7"
+  },
+  "_release": "1.3.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.3.4",
+    "commit": "21a44f37b7a0fb1817ccbb3774a29768622ebf5e"
+  },
+  "_source": "https://github.com/jshor/angular-addtocalendar.git",
+  "_target": "^1.3.4",
+  "_originalSource": "angular-addtocalendar"
+}
