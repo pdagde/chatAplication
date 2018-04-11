@@ -115,7 +115,35 @@ span.psw {
     cursor: pointer;
 }
 
+.wrapper_user {
+    background-color: blue;
+    padding: 1%;
+}
+
+.wrapper_date{
+    background-color: red;
+    padding: 1%;
+}
 /* Add Zoom Animation */
+.user-img-upload-head-wrapper {
+    background-color: #393939; 
+    width: 100%;
+     padding: 35px 20px;
+     border-radius: 4px 4px 0px 0px;
+      color: #fff;
+}
+
+
+.user-port-prog-wrapper {
+    width: 1130px;
+     position: fixed;
+      bottom: 14px;
+       background: #fff;
+        z-index: 99999999;
+        border-radius: 4px; 
+        box-shadow: 0px 2px 8px rgba(0,0,0,0.12);
+         height: 50px
+}
 .animate {
     -webkit-animation: animatezoom 0.6s;
     animation: animatezoom 0.6s

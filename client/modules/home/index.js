@@ -1,5 +1,5 @@
 
-angular.module('appHome',['pizzaHutCodeCtrl','loginCodeCtrl'])
+angular.module('appHome',['pizzaHutCodeCtrl'])
     .config(function($stateProvider) {
         $stateProvider
 
@@ -8,11 +8,7 @@ angular.module('appHome',['pizzaHutCodeCtrl','loginCodeCtrl'])
                 templateUrl: "modules/home/template/pizza.html",
                 controller : "pizzaCtrl"
             })
-            .state('app.login', {
-                url: "/login",
-                templateUrl: "modules/home/template/login.html",
-                controller : "loginCtrl"
-            })
+            
             
            
 
