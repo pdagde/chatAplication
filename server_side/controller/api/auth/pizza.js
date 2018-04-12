@@ -4,16 +4,19 @@ var message = require('../../../server/chatMessage');
 
 
 function createChatGroup(req,callback){
+  
 	var chatGroup = new message();
   	chatGroup.groups = [{
-		     		adminName : "pravin",
-		     		groupSubject : "jshdgfhjsdf",
-		     		adminEmail : "jshdgfhjsdf",
-		     		adminProfile : "skjdhfjkshjdfsd",
+		     		adminName : req.body.name,
+		     		groupSubject : req.body.topics,
+		     		adminEmail : req.body.email,
+		     		adminProfile : req.body.url,
 		     		groupCreatedTime : new Date()
 		         }]
+             console.log("AAAAAAAAAAAAAAA",JSON.stringify(chatGroup));
 	chatGroup.save(function (err, savedGroup) {
 		  message.find({},function(err,data){
+        console.log("BBBBBBBBBBBBBBB",JSON.stringify(data));
 		  	  callback.json(data);
 		  })
 		
@@ -24,6 +27,7 @@ function createChatGroup(req,callback){
 
 function findchatGroup(req,callback){
 		  message.find({},function(err,data){
+         console.log("BBBBBBBBBBBBBBB",JSON.stringify(data));
 		  	  callback.json(data);
 		  })
 }

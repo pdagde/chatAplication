@@ -6,7 +6,24 @@ angular.module('pizzaHutCodeCtrl',['ChatService'])
     .controller('pizzaCtrl',function ($scope,$state,$http,$window,ChatService) {
 
           $scope.admin = {};
+          $scope.isalredyChatGroup = [];
+          $scope.message = {};
           // $scope.createdGroup = {};
+
+            if($window.localStorage['admin']){
+                $scope.loginAdmin = JSON.parse($window.localStorage['admin']);
+               } 
+
+               $window.onbeforeunload = function (e) {
+
+                      if($scope.loginAdmin){
+                        $window.localStorage['admin'] =JSON.stringify('');
+                        $window.localStorage['loginUser'] =JSON.stringify('');
+                        $window.localStorage['allmessage'] =JSON.stringify('');
+                         return "YOUR DATA MIGHT GET LOST...";;
+                      }
+                        
+                };
 
 
           setInterval(function(){
@@ -15,12 +32,15 @@ angular.module('pizzaHutCodeCtrl',['ChatService'])
                  $scope.createdGroup = response;
                  if(response.data[0] && response.data[0].groups[0] && response.data[0].groups[0].chatDetails){
                     $scope.allBuffurMessages = response.data[0].groups[0].chatDetails
+                    $scope.isalredyChatGroup = response.data[0].groups;
+                     console.log("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLL",JSON.stringify( $scope.isalredyChatGroup));
                  }else{
                     $scope.allBuffurMessages = [];
                  }
+
                 })
-              console.log("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
-          }, 1000)
+               
+          }, 100)
 
           
 
@@ -39,25 +59,28 @@ angular.module('pizzaHutCodeCtrl',['ChatService'])
           // console.log("jhfghfgffdsfdsfdfdss",JSON.stringify(loginUserInfo.data._id)) 
 
           $scope.createChatGroup = function(){
+            console.log("WWWWWWWWWWWWWWWWWWWWWWW",JSON.stringify($scope.admin));
             $window.localStorage['admin'] =JSON.stringify($scope.admin);
             ChatService.store($scope.admin);
+            $state.go('app.pizza')
             // 
           }
 
           $scope.loginUser = function(){
             $window.localStorage['admin'] =JSON.stringify($scope.admin);
             ChatService.loginUser($scope.admin);
+            $state.go('app.pizza')
            
           }
 
          $scope.sendmessage = function(){
-
+              console.log("lklklklklklklklklklklklklklk",JSON.stringify($scope.adminDetails));
 
               var query = {
                 name:$scope.adminDetails.name,
                 email: $scope.adminDetails.email,
-                avtar : 'sdfsdf',
-                message : $scope.sendTextmessage
+                avtar : $scope.adminDetails.url,
+                message : $scope.message.sendTextmessage
               }
 
               console.log("jaksgdahsdkjasd",JSON.stringify(query));
@@ -67,7 +90,14 @@ angular.module('pizzaHutCodeCtrl',['ChatService'])
 
 
 
-
+   $scope.gotoLogin = function(){
+       if($scope.isalredyChatGroup[0]){
+        $state.go('app.chatlogin');
+       }else{
+        $state.go('app.login');
+       }
+       
+   }
 
 
 
@@ -78,7 +108,15 @@ var CLOUDINARY_UPLOAD_PRESET='gfu1dswz';
 var imgPreview=document.getElementById('img-preview');
 var fileUpload=document.getElementById('file-upload');
 
-fileUpload.addEventListener('change',function(event){
+
+
+
+
+
+
+// var el = document.getElementById('overlayBtn');
+if(fileUpload){
+  fileUpload.addEventListener('change',function(event){
   console.log("11111111111111111111");
   var file=event.target.files[0];
   var formData=new FormData();
@@ -94,6 +132,8 @@ fileUpload.addEventListener('change',function(event){
     data:formData
   }).then(function(res){
     console.log("2");
+    $scope.admin.url = res.data.url;
+    console.log("333333333333",JSON.stringify(res));
     console.log(res);
     imgPreview.src=res.data.secure_url;
   }).catch(function(err){
@@ -101,10 +141,7 @@ fileUpload.addEventListener('change',function(event){
     console.error(err);
   });
 });
-
-
-
-
+}
 
 
 

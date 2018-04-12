@@ -16,14 +16,14 @@
 					<div class="panel panel-default" style="border: 2px solid #07a6aa">
 						<div class="panel-heading"
 							 style="border: #07a6aa ;height: 39px; color: #fff; background-color: #07a6aa;font-weight: bold">
-							Pravin Dagde
+							{{isalredyChatGroup[0].adminName}}
 						</div>
-						<div class="wrapper_user"> 
-							<div style="col col-md-8">pravin dagde</div>
+						<div > 
+							<!-- <div style="col col-md-8">pravin dagde</div> -->
 							<!-- ng-if="!createdGroup.data[0]" -->
-							<div  class="btn top-right-btn btn-default btn-lg btn-custom-lg col-md-2" style="text-align:center"  data-toggle="modal" data-target="#openfrombegining" >+</div>
+							<div ng-if="!loginAdmin" ng-click="gotoLogin()" class="btn top-right-btn btn-default btn-lg btn-custom-lg col-md-2" style="text-align:center">+</div>
 
-							<div ng-if="createdGroup.data[0] && !loginUserInfo" class="btn top-right-btn btn-default btn-lg btn-custom-lg col-md-2" style="text-align:center"  data-toggle="modal" data-target="#openfromlogin" >+</div>
+						<!-- 	<div ng-if="createdGroup.data[0] && !loginUserInfo" class="btn top-right-btn btn-default btn-lg btn-custom-lg col-md-2" style="text-align:center"  data-toggle="modal" data-target="#openfromlogin" >+</div> -->
 
 							
 						</div>
@@ -42,8 +42,9 @@
 
 											<div class="col-md-2" class="imgcontainerChatmessage">
 									      <!-- <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span> -->
-									      <img src="https://res.cloudinary.com/djwmqlqrk/image/upload/v1520842433/bdu9qjgytcyke1gfvjhb.jpg" alt="Avatar" class="avatar" id="img-preview">
-									      <input id="file-upload" type="file"  style="display:none;"/>
+									      <img ng-if="onechat.membarProfile" src="{{onechat.membarProfile}}" alt="Avatar" class="avatar">
+									      <img ng-if="!onechat.membarProfile" src="https://www.tenforums.com/geek/gars/images/2/types/thumb_User_Accounts.png" alt="Avatar" class="avatar">
+									      
 									    </div>
 
 											<div class="col-md-8" >
@@ -67,11 +68,11 @@
 							</table>
 						
 
-							<div class="user-port-prog-wrapper" >
+							<div ng-if="loginAdmin" class="user-port-prog-wrapper" ng-if="isalredyChatGroup[0]">
 			 					<!-- <div > -->
 			 						<div class="col-md-12" nd-show="true" >
 			 							<div class="col-sm-10">
-			 								<input class="user-img-upload-head-wrapper" ng-model="sendTextmessage" style="width: 120%;margin-top: -25px;">
+			 								<input class="user-img-upload-head-wrapper" ng-model="message.sendTextmessage" style="width: 120%;margin-top: -25px;">
 			 							</div>
 			 							<div class="col-offset-2 col-md-2">
 			 								<button ng-click="sendmessage()">send</button>
@@ -91,89 +92,7 @@
 
 		</div>
 
-
-<!-- https://res.cloudinary.com/djwmqlqrk/image/upload/v1520842433/bdu9qjgytcyke1gfvjhb.jpg -->
-
-	</section>
-						<div id="openfrombegining" class="modal fade">
-									 <form class="modal-content animate"  >
-									    <div class="imgcontainer">
-								          <img src="http://fillmurray.com/g/300/300" id="img-preview" />
-									      <label class="file-upload-container" for="file-upload">
-									        <input id="file-upload" type="file" style="display:none;">
-									        Select an Image
-									      </label>
-																		    </div>
-
-									    <div class="container">
-									    	<div class="row">
-									    	<div  class="col-md-12">
-									    		<label for="uname"><b>Chatting Topics</b></label>
-									      <input type="text" placeholder="Enter Chatting Topics" ng-model="admin.topics" required>
-									  </div>
-									      	 
-											      <div class="col-md-6">
-											      	   <label for="uname"><b>Username</b></label>
-											      <input type="text" placeholder="Enter Username" ng-model="admin.name" required>
-											      </div>	
-											     
-											      <div class="col-md-6">
-											      	<label for="psw"><b>Email</b></label>
-											      <input type="text" placeholder="Enter Email" ng-model="admin.email" required>
-											      </div>
-									        
-									        
-									      <button type="submit">Login</button>
-									      <label>
-									        <input type="checkbox" checked="checked" name="remember"> Remember me
-									      </label>
-									  </div>
-									    </div>
-
-									    <div class="container" >
-									      <button ng-click="createChatGroup()" >CREATE GROUP</button>
-									      
-									    </div>
-                                     </form>
- 
-								</div>
-
-								<div id="openfromlogin" class="modal fade">
-									 <form class="modal-content animate"  >
-									    <div class="imgcontainer">
-									      <!-- <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span> -->
-									      <img src="https://res.cloudinary.com/djwmqlqrk/image/upload/v1520842433/bdu9qjgytcyke1gfvjhb.jpg" alt="Avatar" class="avatar">
-									    </div>
-
-									    <div class="container">
-									    	<div class="row">
-									    	
-									      	 
-											      <div class="col-md-6">
-											      	   <label for="uname"><b>Username</b></label>
-											      <input type="text" placeholder="Enter Username" ng-model="admin.name" required>
-											      </div>	
-											     
-											      <div class="col-md-6">
-											      	<label for="psw"><b>Email</b></label>
-											      <input type="text" placeholder="Enter Email" ng-model="admin.email" required>
-											      </div>
-									        
-									        
-									     <!--  <button type="submit">Login</button>
-									      <label>
-									        <input type="checkbox" checked="checked" name="remember"> Remember me
-									      </label> -->
-									  </div>
-									    </div>
-
-									    <div class="container" >
-									      <button ng-click="loginUser()" >SUBMIT</button>
-									      
-									    </div>
-                                     </form>
- 
-								</div>
+	</section>					
 </div>
 
 </body>
