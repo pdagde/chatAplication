@@ -28,6 +28,7 @@ angular.module('pizzaHutCodeCtrl',['ChatService'])
           setInterval(function(){
 
             $http.post('/pizza/findchatGroup', {}).then(function (response) {
+                 // console.log("asdasdasdasd",JSON.stringify(response));
                  $scope.createdGroup = response;
                  if(response.data[0] && response.data[0].groups[0] && response.data[0].groups[0].chatDetails){
                     $scope.allBuffurMessages = response.data[0].groups[0].chatDetails
@@ -39,9 +40,16 @@ angular.module('pizzaHutCodeCtrl',['ChatService'])
 
                 })
                
-          }, 100)
+          }, 500)
 
-          
+          setInterval(function(){
+
+                  var query = {
+                    name : 'Enter Text Message Here .....'
+                  }
+                  ChatService.setActiveUser(query);
+               
+          }, 7000)
 
 
 
@@ -71,6 +79,16 @@ angular.module('pizzaHutCodeCtrl',['ChatService'])
             $state.go('app.pizza')
            
           }
+
+          $scope.setActiveUser = function(){
+            var name = $scope.loginAdmin.name +  ' is typing Message .....'
+            var query = {
+              name : name
+            }
+             // console.log("KKKKKKKKKKKKKKKKKKKKKKKK",JSON.stringify(query));
+    ChatService.setActiveUser(query);
+    
+   }
 
          $scope.sendmessage = function(){
               console.log("lklklklklklklklklklklklklklk",JSON.stringify($scope.adminDetails));

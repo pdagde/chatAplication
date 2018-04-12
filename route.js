@@ -12,6 +12,8 @@ router.route('/pizza/findchatGroup').post(pizza.findchatGroup);
 router.route('/pizza/loginUser').post(pizza.loginUser);
 router.route('/pizza/sendmessage').post(pizza.sendmessage);
 
+router.route('/pizza/setActiveUser').post(pizza.setActiveUser);
+
 
   console.log('routes registered..!');
 };

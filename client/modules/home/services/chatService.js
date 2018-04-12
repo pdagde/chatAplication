@@ -55,6 +55,12 @@
             }
           
 
+          chatMessage.setActiveUser = function(value){
+                $http.post('/pizza/setActiveUser', value).then(function (response) {
+                   return {}
+              }) 
+            }
+
             
            
 

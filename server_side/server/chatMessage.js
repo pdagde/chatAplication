@@ -7,6 +7,7 @@ var schema = new mongoose.Schema({
                  groupSubject : {type : String},
                  adminProfile : { type : String},
                  groupCreatedTime : Date,
+                 activeMenbar : {type : String},
                  chatDetails : [{
                                     menbarName : {type : String},
                                     membarEmail : { type : String},

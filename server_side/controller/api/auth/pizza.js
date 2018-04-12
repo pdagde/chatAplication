@@ -27,7 +27,7 @@ function createChatGroup(req,callback){
 
 function findchatGroup(req,callback){
 		  message.find({},function(err,data){
-         console.log("BBBBBBBBBBBBBBB",JSON.stringify(data));
+         // console.log("BBBBBBBBBBBBBBB",JSON.stringify(data));
 		  	  callback.json(data);
 		  })
 }
@@ -51,7 +51,7 @@ message.find({},function(err,data){
 }
 
 function sendmessage(req,callback){
-console.log("WWWWWWWWWWW",JSON.stringify(req.body))
+// console.log("WWWWWWWWWWW",JSON.stringify(req.body))
      var query = {
      	           menbarName :req.body.name,
                    membarEmail : req.body.email,
@@ -64,15 +64,28 @@ console.log("WWWWWWWWWWW",JSON.stringify(req.body))
 
 
 message.find({},function(err,data){
-		  	  data[0].groups[0].chatDetails.push(query);
+		  	  data[0].groups[0].chatDetails.unshift(query);
               message.update({},{"$set" : {"groups":data[0].groups}},function(err,message){
-              	console.log("WWWWWWWWWWW",JSON.stringify(data[0]))
+              	// console.log("WWWWWWWWWWW",JSON.stringify(data[0]))
               	callback.json(data[0]);
               })  
 		  })
 }
 
 
+function setActiveUser(req,callback){
+ message.find({},function(err,data){
+        data[0].groups[0].activeMenbar = req.body.name
+          message.update({},{'$set' : { "groups" : data[0].groups}},function(err,responce){
+            callback.json({});
+              
+              
+           })
+         
+      })
+
+   
+}
 // proofingPhoto.update(query,{"$push":{"like.name":req.body.name}
 
 
@@ -115,6 +128,7 @@ module.exports.findchatGroup = findchatGroup;
 module.exports.createChatGroup = createChatGroup;
 module.exports.loginUser = loginUser;
 module.exports.sendmessage = sendmessage;
+module.exports.setActiveUser = setActiveUser;
 
 
 
