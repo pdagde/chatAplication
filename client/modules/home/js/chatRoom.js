@@ -100,7 +100,7 @@ angular.module('chatRoomCodeCtrl',['ChatService'])
 
              
               $scope.allUsermessage = ChatService.sendmessage(query);
-             
+             $scope.message.sendTextmessage = '';
          }
 
 
