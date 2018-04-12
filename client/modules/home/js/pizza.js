@@ -1,6 +1,4 @@
-/**
- * Created by Pravin on 29/03/2018.
- */
+
 
 angular.module('pizzaHutCodeCtrl',['ChatService'])
     .controller('pizzaCtrl',function ($scope,$state,$http,$window,ChatService) {
@@ -13,10 +11,11 @@ angular.module('pizzaHutCodeCtrl',['ChatService'])
             if($window.localStorage['admin']){
                 $scope.loginAdmin = JSON.parse($window.localStorage['admin']);
                } 
-
+               console.log("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLL",JSON.stringify($scope.loginAdmin));
                $window.onbeforeunload = function (e) {
 
                       if($scope.loginAdmin){
+                        $scope.loginAdmin = '';
                         $window.localStorage['admin'] =JSON.stringify('');
                         $window.localStorage['loginUser'] =JSON.stringify('');
                         $window.localStorage['allmessage'] =JSON.stringify('');
@@ -33,7 +32,7 @@ angular.module('pizzaHutCodeCtrl',['ChatService'])
                  if(response.data[0] && response.data[0].groups[0] && response.data[0].groups[0].chatDetails){
                     $scope.allBuffurMessages = response.data[0].groups[0].chatDetails
                     $scope.isalredyChatGroup = response.data[0].groups;
-                     console.log("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLL",JSON.stringify( $scope.isalredyChatGroup));
+                     
                  }else{
                     $scope.allBuffurMessages = [];
                  }
@@ -91,6 +90,7 @@ angular.module('pizzaHutCodeCtrl',['ChatService'])
 
 
    $scope.gotoLogin = function(){
+    console.log("lklklklklklklklklklklklklklk",JSON.stringify( $scope.allUsermessage));
        if($scope.isalredyChatGroup[0]){
         $state.go('app.chatlogin');
        }else{
