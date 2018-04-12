@@ -1,9 +1,6 @@
 
 
 'use strict';
-
-// Public API
-
     angular.module('ChatService', [])
 
         .factory('ChatService', function ($rootScope,$window,$http) {
@@ -11,28 +8,13 @@
             var chatMessage = {};
            
            chatMessage.store = function(value){
-                $http.post('/pizza/createChatGroup', value).then(function (response) {
+                $http.post('/chatRoom/createChatGroup', value).then(function (response) {
                    return response;
                 })
               }
 
-              // chatMessage.fetchGroup = function(){
-              	
-              	
-              // 		$http.post('/pizza/findchatGroup', {}).then(function (response) {
-
-              //   	return createdGroup
-              //   })
-              		
-
-                
-              // }
-
-
              chatMessage.loginUser = function(value){
-                $http.post('/pizza/loginUser', value).then(function (response) {
-                	console.log("jjjjjjjjjjjj",JSON.stringify(response))
-                	
+                $http.post('/chatRoom/loginUser', value).then(function (response) { 	
                 })
               }
 
@@ -47,22 +29,17 @@
             }
               
             chatMessage.sendmessage = function(value){
-                $http.post('/pizza/sendmessage', value).then(function (response) {
+                $http.post('/chatRoom/sendmessage', value).then(function (response) {
                  $window.localStorage['allmessage'] =JSON.stringify(response);
-                  console.log("ldldldldldldlddl",JSON.stringify(response));
                  return response;
               }) 
             }
           
-
           chatMessage.setActiveUser = function(value){
-                $http.post('/pizza/setActiveUser', value).then(function (response) {
+                $http.post('/chatRoom/setActiveUser', value).then(function (response) {
                    return {}
               }) 
             }
-
-            
-           
 
             return chatMessage;
         });

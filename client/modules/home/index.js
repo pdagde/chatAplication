@@ -1,26 +1,24 @@
 
-angular.module('appHome',['pizzaHutCodeCtrl'])
+angular.module('appHome',['chatRoomCodeCtrl'])
     .config(function($stateProvider) {
         $stateProvider
 
-            .state('app.pizza', {
-                url: "/pizza",
-                templateUrl: "modules/home/template/pizza.html",
-                controller : "pizzaCtrl"
+            .state('app.chatRoom', {
+                url: "/chatRoom",
+                templateUrl: "modules/home/template/chatRoom.html",
+                controller : "chatRoomCtrl"
             })
             .state('app.login', {
                 url: "/login",
                 templateUrl: "modules/home/template/login.html",
-                controller : "pizzaCtrl"
+                controller : "chatRoomCtrl"
             })
             
             .state('app.chatlogin', {
                 url: "/chatlogin",
                 templateUrl: "modules/home/template/chatlogin.html",
-                controller : "pizzaCtrl"
+                controller : "chatRoomCtrl"
             })
            
-
-// /Users/crive/Documents/assignments/pizzaHut/client/modules/home/template/chatlogin.html
 
     });

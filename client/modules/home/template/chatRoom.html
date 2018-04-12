@@ -19,13 +19,9 @@
 							{{isalredyChatGroup[0].adminName}}
 						</div>
 						<div > 
-							<!-- <div style="col col-md-8">pravin dagde</div> -->
-							<!-- ng-if="!createdGroup.data[0]" -->
+							
 							<div ng-if="!loginAdmin" ng-click="gotoLogin()" class="btn top-right-btn btn-default btn-lg btn-custom-lg col-md-2" style="text-align:center">+</div>
 
-						<!-- 	<div ng-if="createdGroup.data[0] && !loginUserInfo" class="btn top-right-btn btn-default btn-lg btn-custom-lg col-md-2" style="text-align:center"  data-toggle="modal" data-target="#openfromlogin" >+</div> -->
-
-							
 						</div>
 							<table class="table table-bordered table-condensed table-striped" >
 										</div>
@@ -37,12 +33,7 @@
 								    overflow-x:scroll;">
 										<td style="text-align: center">
 												<div class="col col-md-12">
-											<!-- <div >
-												<img ng-src="https://res.cloudinary.com/djwmqlqrk/image/upload/v1520842433/bdu9qjgytcyke1gfvjhb.jpg">
-											</div> -->
-
 											<div class="col-md-2" class="imgcontainerChatmessage">
-									      <!-- <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span> -->
 									      <img ng-if="onechat.membarProfile" src="{{onechat.membarProfile}}" alt="Avatar" class="avatar">
 									      <img ng-if="!onechat.membarProfile" src="https://www.tenforums.com/geek/gars/images/2/types/thumb_User_Accounts.png" alt="Avatar" class="avatar">
 									      
@@ -67,10 +58,8 @@
 								</div>
 								</div>
 							</table>
-						
-<!--ng-if="loginAdmin"  ng-if="isalredyChatGroup[0]"  -->
 
-							<div  class="user-port-prog-wrapper">
+							<div  ng-if="loginAdmin"  ng-if="isalredyChatGroup[0]" class="user-port-prog-wrapper">
 			 						<div class="col-md-12" nd-show="true" >
 			 							<div class="col-sm-10">
 			 								<input ng-change="setActiveUser()" class="user-img-upload-head-wrapper sendinput"  placeholder="{{ isalredyChatGroup[0].activeMenbar}}" ng-model="message.sendTextmessage"  >

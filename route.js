@@ -1,20 +1,11 @@
-
 'use strict';
-
-var pizza = require("./server_side/controller/api/auth/pizza.js");
+var chatRoom = require("./server_side/controller/api/auth/chatRoom.js");
 module.exports.register = function(router){
-
- 
- router.route('/pizza/allPizz').post(pizza.allPizz);
- router.route('/pizza/newpostorder').post(pizza.newpostorder);
- router.route('/pizza/createChatGroup').post(pizza.createChatGroup);
-router.route('/pizza/findchatGroup').post(pizza.findchatGroup);
-router.route('/pizza/loginUser').post(pizza.loginUser);
-router.route('/pizza/sendmessage').post(pizza.sendmessage);
-
-router.route('/pizza/setActiveUser').post(pizza.setActiveUser);
-
-
-  console.log('routes registered..!');
+router.route('/chatRoom/createChatGroup').post(chatRoom.createChatGroup);
+router.route('/chatRoom/findchatGroup').post(chatRoom.findchatGroup);
+router.route('/chatRoom/loginUser').post(chatRoom.loginUser);
+router.route('/chatRoom/sendmessage').post(chatRoom.sendmessage);
+router.route('/chatRoom/setActiveUser').post(chatRoom.setActiveUser);
+console.log('routes registered..!');
 };
 
