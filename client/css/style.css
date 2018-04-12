@@ -132,11 +132,24 @@ span.psw {
 .user-img-upload-head-wrapper {
     background-color: #393939; 
     width: 100%;
-     padding: 35px 20px;
+     padding: 20px 20px;
      border-radius: 4px 4px 0px 0px;
       color: #fff;
 }
+.sendButton {
+     margin-left: 40px;
+    border-radius: 13px;
+    margin-top: 0px;
+    box-shadow: 1px 6px #888888;
+}
 
+.sendinput {
+    width: 124%;margin-top: -7px; width: 124%;
+    margin-top: -7px;
+    border-radius: 13px;
+    background-color: #ffff;
+    box-shadow: 1px 6px #888888;
+}
 
 .user-port-prog-wrapper {
     width: 1130px;

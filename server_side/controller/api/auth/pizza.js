@@ -75,12 +75,17 @@ message.find({},function(err,data){
 
 function setActiveUser(req,callback){
  message.find({},function(err,data){
-        data[0].groups[0].activeMenbar = req.body.name
+      if(data[0]){
+
+           data[0].groups[0].activeMenbar = req.body.name
           message.update({},{'$set' : { "groups" : data[0].groups}},function(err,responce){
             callback.json({});
               
               
            })
+      }
+        
+      
          
       })
 

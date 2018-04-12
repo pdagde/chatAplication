@@ -68,24 +68,19 @@
 								</div>
 							</table>
 						
-<!--  -->
-							<div ng-if="loginAdmin"  ng-if="isalredyChatGroup[0]">
-			 					<!-- <div > -->
+<!--ng-if="loginAdmin"  ng-if="isalredyChatGroup[0]"  -->
+
+							<div  class="user-port-prog-wrapper">
 			 						<div class="col-md-12" nd-show="true" >
 			 							<div class="col-sm-10">
-			 								<input ng-change="setActiveUser()" class="user-img-upload-head-wrapper"  placeholder="{{ isalredyChatGroup[0].activeMenbar}}" ng-model="message.sendTextmessage" style="width: 120%;margin-top: -25px;">
+			 								<input ng-change="setActiveUser()" class="user-img-upload-head-wrapper sendinput"  placeholder="{{ isalredyChatGroup[0].activeMenbar}}" ng-model="message.sendTextmessage"  >
 			 							</div>
 			 							<div class="col-offset-2 col-md-2">
-			 								<button ng-click="sendmessage()" >send</button>
+			 								<button ng-click="sendmessage()" class="sendButton" >send</button>
 			 							</div>
 			 							
 			 						 </div>
-
-			 						
-			 						
-			 					<!-- </div> -->
 							</div>
-
 
 					</div>
 				</div>

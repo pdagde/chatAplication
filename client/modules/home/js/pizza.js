@@ -25,7 +25,7 @@ angular.module('pizzaHutCodeCtrl',['ChatService'])
                 };
 
 
-          setInterval(function(){
+          // setInterval(function(){
 
             $http.post('/pizza/findchatGroup', {}).then(function (response) {
                  // console.log("asdasdasdasd",JSON.stringify(response));
@@ -40,7 +40,7 @@ angular.module('pizzaHutCodeCtrl',['ChatService'])
 
                 })
                
-          }, 500)
+          // }, 500)
 
           setInterval(function(){
 
